@@ -14,7 +14,7 @@
     "**/karma.conf.js": true,
     "**/node_modules": false,
     "**/package-lock.json": true,
-    "**/README.md": true,
+    "**/README.md": false,
     "**/src/assets": false,
     "**/src/aws-exports.js": true,
     "**/src/environments": true,
