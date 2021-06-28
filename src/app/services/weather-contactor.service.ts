@@ -9,7 +9,7 @@ export class WeatherContactorService {
   private apiKey = '796468292ae1e7ee17f39c2006913d91';
   private units = 'metric';
   constructor() {}
-  async getWeatherdata(cityName: string) {
+  async getWeatherData(cityName: string) {
     const url = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=${this.units}&appid=${this.apiKey}`;
     try {
       const response = await fetch(url);
@@ -35,6 +35,19 @@ export class WeatherContactorService {
     } catch (error) {
       throw error;
     }
+  }
+  async testGetWeatherData(cityName: string) {
+    const weatherData: WeatherData = {
+      weatherDesc: 'clear skies',
+      country: 'Canada',
+      city: <string>'Toronto',
+      coords: { lat: 43, lon: 71 },
+      localDateTime: '14:02:23',
+      remoteDateTime: '14:02:23',
+      temperature: 24.3,
+      humidity: 52,
+    };
+    return weatherData;
   }
 }
 export interface WeatherData {

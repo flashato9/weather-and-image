@@ -15,7 +15,7 @@
     "**/node_modules": false,
     "**/package-lock.json": true,
     "**/README.md": true,
-    "**/src/assets": true,
+    "**/src/assets": false,
     "**/src/aws-exports.js": true,
     "**/src/environments": true,
     "**/src/main.ts": true,

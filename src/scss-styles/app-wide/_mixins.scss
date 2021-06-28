@@ -1,0 +1,50 @@
+//value setters
+$button-background-color: transparent;
+$button-padding: 0.5rem;
+
+$button-border-style: solid;
+$button-border-color: black;
+$button-border-width: 1px;
+$button-border-radius: 5px;
+$border-shadow-color: black;
+$font-color: inherit;
+
+@mixin icon-buttons($font-size) {
+  mat-icon {
+    width: 100%;
+    height: 100%;
+  }
+  @include button-config($font-size);
+}
+@mixin button-config($font-size) {
+  background-color: $button-background-color;
+  padding: $button-padding;
+  border: $button-border-style $button-border-width $button-border-color;
+  border-radius: $button-border-radius;
+  box-shadow: 1px 1px 5px $border-shadow-color;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: bold;
+  font-size: $font-size;
+  color: $font-color;
+  transition: background-color 0.2s ease 0s, box-shadow 0.2s linear 0s;
+
+  &:hover {
+    border: $button-border-color $button-border-style $button-border-width;
+    box-shadow: 1px 1px 15px $border-shadow-color;
+  }
+  &:disabled {
+    border: transparent $button-border-style $button-border-width;
+    box-shadow: none;
+    cursor: default;
+  }
+}
+@mixin button-config-box-shadow-color($border-shadow-color) {
+  box-shadow: 1px 1px 5px $border-shadow-color;
+  &:hover {
+    box-shadow: 1px 1px 15px $border-shadow-color;
+  }
+}

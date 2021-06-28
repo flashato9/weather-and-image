@@ -1,0 +1,73 @@
+//When you set an element's height to 100%, does it extend to the entire screen height?
+//Sometimes. CSS always treats percent values as a percentage of the parent element.
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%; //when set to 100% height stretches to 100% the size of the window content on the page.
+}
+
+//Typeography
+$sans-serif-font-family: "Trebuchet MS", "Roboto", sans-serif;
+$serif-font-family: "Georgia", "MS Serif", "Times New Roman", serif;
+* {
+  font-family: $sans-serif-font-family;
+  color: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+}
+mat-icon,
+.material-icons {
+  font-family: "Material Icons";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $serif-font-family;
+  font-weight: bold;
+}
+html {
+  font-size: 16px;
+}
+
+$h1-font-size: 4rem;
+$h2-font-size: 3.5rem;
+$h3-font-size: 3rem;
+$h4-font-size: 2.5rem;
+$h5-font-size: 2rem;
+$h6-font-size: 1.5rem;
+h1 {
+  font-size: $h1-font-size;
+}
+h2 {
+  font-size: $h2-font-size;
+}
+h3 {
+  font-size: $h3-font-size;
+}
+h4 {
+  font-size: $h4-font-size;
+}
+h5 {
+  font-size: $h5-font-size;
+}
+h6 {
+  font-size: $h6-font-size;
+}
+//default display changes
+li {
+  list-style-type: none;
+}
+
+//Interactions
+button:hover {
+  cursor: pointer;
+}

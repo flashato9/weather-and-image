@@ -1,37 +1,58 @@
-<header>
-  <h1><label for="city">Weather and Image</label></h1>
-</header>
-<main>
-  <form [formGroup]="this.form" *ngIf="!this.currentlyShowingData" (ngSubmit)="this.onButtonClick()">
-    <input id="city" formControlName="cityName" type="text" placeholder="Enter your city ..." />
-    <div>
-      <p *ngIf="this.errorString">{{ this.errorString }}</p>
-    </div>
-  </form>
-  <article *ngIf="this.currentlyShowingData">
-    <section>
-      <h2>Location</h2>
-      <ul>
-        <li><span>Country:</span>{{ this.weatherData.country }}</li>
-        <li><span>City:</span> {{ this.weatherData.city }}</li>
-        <li><span>Longitude:</span> {{ this.weatherData.coords.lon }}&#176;</li>
-        <li><span>Latitude:</span> {{ this.weatherData.coords.lat }}&#176;</li>
-      </ul>
-    </section>
-    <section>
-      <h2><span>Local Time: </span>{{ this.weatherData.localDateTime }}</h2>
-      <h2><span>Remote Time: </span>{{ this.weatherData.remoteDateTime }}</h2>
-    </section>
-    <section>
-      <h2>Weather</h2>
-      <ul>
-        <li>
-          <span>Temperature:</span> {{ this.weatherData.temperature }}&#176;C /
-          {{ this.convert2F(this.weatherData.temperature) }}&#176;F
-        </li>
-        <li><span>Humidity:</span> {{ this.weatherData.humidity }}%</li>
-      </ul>
-    </section>
-  </article>
-  <button *ngIf="!this.weatherDataEmpty()" (click)="this.onButtonClick()"><span class="material-icons">expand_more</span></button>
-</main>
+<div id="host-container" [style.background-image]="this.getImageURL()">
+  <main id="main-container" [class.data-show]="this.currentlyShowingData">
+    <header>
+      <h1><label for="city">Weather and Image</label></h1>
+    </header>
+    <form [formGroup]="this.form" *ngIf="!this.currentlyShowingData" (ngSubmit)="this.onButtonClick()">
+      <input id="city" formControlName="cityName" type="text" placeholder="Enter your city ..." />
+      <div *ngIf="this.errorString" id="error-message">
+        <p>{{ this.errorString }}</p>
+      </div>
+    </form>
+    <article *ngIf="this.currentlyShowingData">
+      <section>
+        <h2>Location</h2>
+        <ul>
+          <li><span>Country:</span>{{ this.completeData.weatherData.country }}</li>
+          <li><span>City:</span> {{ this.completeData.weatherData.city }}</li>
+          <li><span>Longitude:</span> {{ this.completeData.weatherData.coords.lon }}&#176;</li>
+          <li><span>Latitude:</span> {{ this.completeData.weatherData.coords.lat }}&#176;</li>
+        </ul>
+      </section>
+      <section id="time">
+        <div class="time">
+          <h2>Local Time:</h2>
+          <span>
+            {{ this.completeData.weatherData.localDateTime }}
+          </span>
+        </div>
+
+        <div class="time">
+          <h2>Remote Time:</h2>
+          <span>
+            {{ this.completeData.weatherData.remoteDateTime }}
+          </span>
+        </div>
+      </section>
+      <section>
+        <h2>Weather</h2>
+        <ul>
+          <li>
+            <span>Temperature:</span> {{ this.completeData.weatherData.temperature }}&#176;C /
+            {{ this.convert2F(this.completeData.weatherData.temperature) }}&#176;F
+          </li>
+          <li><span>Humidity:</span> {{ this.completeData.weatherData.humidity }}%</li>
+          <li><span>Description:</span>"{{ this.completeData.weatherData.weatherDesc }}"</li>
+        </ul>
+      </section>
+    </article>
+    <button
+      class="open-button"
+      [class.close-button]="this.currentlyShowingData"
+      *ngIf="!this.weatherDataEmpty()"
+      (click)="this.onButtonClick()"
+    >
+      <span class="material-icons">expand_more</span>
+    </button>
+  </main>
+</div>

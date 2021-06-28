@@ -1,0 +1,167 @@
+@import "exports.scss";
+:host {
+}
+#host-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  // background-image: url(../assets/home/background.jpg);
+  background-position: center;
+  background-size: cover;
+}
+#main-container {
+  height: 100%;
+  width: 50%;
+  @media screen and (max-width: $laptop-screen) {
+    width: 90%;
+  }
+  @media screen and (max-width: $tablet-screen) {
+    width: 100%;
+  }
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  align-items: start;
+  justify-items: center;
+
+  color: white;
+  font-family: "Amatic SC", cursive, serif;
+  :not(.material-icons) {
+    font-family: inherit;
+  }
+}
+h1 {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  font-size: $h1-font-size + 2rem;
+  @media screen and (max-width: $mobileL-screen) {
+    font-size: $h1-font-size;
+  }
+  label {
+    text-align: center;
+    text-shadow: 2px 0px 15px rgb(185, 185, 185);
+  }
+  * {
+    font-family: inherit;
+  }
+}
+
+form {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Amatic SC", cursive, serif;
+  font-size: $h5-font-size;
+  width: 75%;
+  @media screen and (max-width: $mobileL-screen) {
+    width: 90%;
+  }
+  margin: 1px;
+  border: 1px solid transparent;
+
+  * {
+    width: 100%;
+  }
+  @mixin input-default-settings {
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 50px;
+    padding: $sectioning-container-padding;
+    padding-left: $sectioning-container-padding + 1rem;
+    padding-right: $sectioning-container-padding + 1rem;
+    box-shadow: 2px 0px 5px white;
+  }
+
+  input {
+    @include input-default-settings();
+
+    color: black;
+    &:focus {
+      outline: none;
+    }
+  }
+  #error-message {
+    font-size: $h5-font-size;
+    @media screen and (max-width: $mobileL-screen) {
+      font-size: $h6-font-size;
+    }
+    font-weight: bold;
+    padding-left: $sectioning-container-padding + 1rem;
+    padding-right: $sectioning-container-padding + 1rem;
+    margin-top: $sectioning-container-padding;
+    p {
+      background-color: rgba(0, 0, 0, 1);
+      padding: $sectioning-container-padding;
+      border-radius: $sectioning-container-border-radius;
+    }
+  }
+}
+.open-button {
+  align-self: center;
+  width: 25%;
+  @media screen and (max-width: $mobileL-screen) {
+    width: 50%;
+  }
+  @include icon-buttons($h1-font-size + 2rem);
+  border-width: 3px;
+  &:hover {
+    border-width: 3px;
+  }
+  span {
+    transform: rotate(180deg);
+  }
+  background-color: black;
+}
+#main-container.data-show {
+  grid-template-rows: 1fr 3fr 1fr;
+  letter-spacing: 0.15rem;
+  article {
+    font-size: $h4-font-size;
+    @media screen and (max-width: $laptopL-screen) {
+      font-size: $h6-font-size;
+    }
+    // @media screen and (max-width: $mobileL-screen) {
+    //   margin-left: $list-item-row-margin;
+    //   margin-right: $list-item-row-margin;
+    // }
+    h2 {
+      font-size: $h5-font-size;
+    }
+    :not(h2) {
+      font-size: inherit;
+    }
+    .time {
+      margin-right: 18rem;
+      @media screen and (max-width: $laptopL-screen) {
+        margin-right: 13rem;
+      }
+      @media screen and (max-width: $mobileL-screen) {
+        margin-right: 1rem;
+      }
+
+      display: flex;
+      align-items: center;
+    }
+
+    ul {
+      padding-left: 1rem;
+      li span {
+        font-weight: bold;
+      }
+    }
+    background-color: black;
+    padding: $button-padding;
+    border-radius: $button-border-radius;
+    box-shadow: 2px 2px 5px rgb(0, 0, 0);
+  }
+
+  .close-button {
+    align-self: flex-start;
+    span {
+      transform: rotate(0deg);
+    }
+  }
+}
