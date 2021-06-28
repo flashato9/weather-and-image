@@ -120,6 +120,8 @@ form {
   letter-spacing: 0.15rem;
   article {
     font-size: $h4-font-size;
+    margin-left: $list-item-row-margin;
+    margin-right: $list-item-row-margin;
     @media screen and (max-width: $laptopL-screen) {
       font-size: $h6-font-size;
     }
@@ -159,7 +161,6 @@ form {
   }
 
   .close-button {
-    align-self: flex-start;
     span {
       transform: rotate(0deg);
     }
